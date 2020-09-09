@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	
+	<p><b>surname:</b> <input ng-model="x.surname" type="text"></p>
+    <p><b>name:</b> <input ng-model="x.name" type="text"</p>
+    <p ng-repeat="x in customers | filter : {'surname' : x.surname, 'name' : x.name}">{{x.surname + " " + x.name + ", Mark:" + x.mark}}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.customers = [
+        {"name" : "ivan", "surname" : "gariuc", "mark" : "10"},
+        {"name" : "Sam", "surname" : "Barean", "mark" : "8"},
+        {"name" : "ALex", "surname" : "Ivanov", "mark" : "9"},
+        {"name" : "Stas", "surname" : "Oculovici", "mark" : "6"},
+        {"name" : "Karinoid", "surname" : "Siscu", "mark" : "8"},
+        {"name" : "Nasty", "surname" : "Shmigaliova", "mark" : "7"},
+        {"name" : "Michael", "surname" : "Burik", "mark" : "7"}
+    ];
+});
+</script>
+
+</body>
+</html>
