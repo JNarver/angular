@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+    <div ng-app="angular3" ng-controller="myCtrl">
+        <h3>¬озведение числа в степень</h3>
+        <p>число 3 в квадрате: {{number}}.</p>
+    </div>
+
+    <script>
+var app = angular.module('angular3', []);
+
+app.service('pow', function() {
+    this.myFunc = function(x) {
+        return x*x;
+    }
+});
+
+app.controller('myCtrl', function($scope, pow) {
+  $scope.number = pow.myFunc(3);
+});
+    </script>
+
+</body>
+</html>
